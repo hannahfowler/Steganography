@@ -5,7 +5,7 @@
 %file type entered without a ?.? (ex tiff not .tiff), the block size to be
 %used, the number of columns to protect, the amount of redundancy and the
 %number of iterations to be used.
-function rcvd_msg = recover1(image_addr, image_type, dim, cols_protected,redun)
+function rcvd_msg = recover(image_addr, image_type, dim, cols_protected,redun)
     %read in the file
     input_image = imread(image_addr, image_type);
     %make input_image into a real valued matrix so SVD can be computed
