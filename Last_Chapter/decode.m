@@ -5,6 +5,6 @@ function res = decode()
 %  decoded = char(bin2dec(reshape(message,[mod(length(message)/8),8]).').')
  
 for i = 1:length(message)
-    
+    strings = mat2str(message(i):message(i+
 end 
 end
