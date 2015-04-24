@@ -23,15 +23,15 @@ function msg = embed(image_addr, image_type, dim, cols_protected, redun,iteratio
     num_blocks=m*n/(dim^2);
 
     %computes the largest message that can be embedded
-    %msg_size=ceil(bpb*num_blocks/redun);
+    msg_size=ceil(bpb*num_blocks/redun);
     %disp(msg_size)
 
     %Generate a random message of size msg_size to embed
-    %msg = round(rand(1,msg_size))
-    msg=[0 1 0 0 1 0 0 0 0 1 1 0 0 1 0 1 0 1 1 0 1 1 0 0 0 1 1 0 1 1 0 0 0 1 1 0 1 1 1 1 0 1 0 0 1 1 0 1 0 1 1 1 1 0 0 1 0 1 1 0 1 1 1 0 0 1 1 0 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 0 0 1 0 1 0 1 1 0 1 0 0 1 0 1 1 1 0 0 1 1 0 1 0 0 0 0 0 1 0 1 1 0 1 1 1 0 0 1 1 0 1 1 1 0 0 1 1 0 0 0 0 1 0 1 1 0 0 0 1 0 0 1 1 0 0 1 0 1 0 1 1 0 1 1 0 0 0 1 0 0 1 1 0 1 0 1 1 1 1 0 0 1 0 1 1 0 0 1 1 0 0 1 1 1 0 0 1 0 0 1 1 0 1 0 0 1 0 1 1 0 0 1 0 1 0 1 1 0 1 1 1 0 0 1 1 0 0 1 0 0 0 1 1 1 0 0 1 1 0 1 1 0 0 0 0 1 0 1 1 1 0 0 1 0 0 1 1 0 0 1 0 1 0 1 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 1 1 0 1 1 1 0 0 1 1 0 1 1 1 0 0 1 1 0 0 0 0 1 0 1 1 0 1 0 0 0 0 1 1 0 0 0 0 1 0 1 1 0 1 1 1 0 0 1 1 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 1 0 0 0 0 1 0 1 1 1 0 1 1 0 0 1 1 0 1 0 0 1 0 1 1 0 0 1 0 0 ]
+    %msg = round(rand(1,msg_size));
+    msg=[0 1 0 0 1 0 0 0 0 1 1 0 0 1 0 1 0 1 1 0 1 1 0 0 0 1 1 0 1 1 0 0 0 1 1 0 1 1 1 1 0 1 0 0 1 1 0 1 0 1 1 1 1 0 0 1 0 1 1 0 1 1 1 0 0 1 1 0 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 0 0 1 0 1 0 1 1 0 1 0 0 1 0 1 1 1 0 0 1 1 0 1 0 0 0 0 0 1 0 1 1 0 1 1 1 0 0 1 1 0 1 1 1 0 0 1 1 0 0 0 0 1 0 1 1 0 0 0 1 0 0 1 1 0 0 1 0 1 0 1 1 0 1 1 0 0 0 1 0 0 1 1 0 1 0 1 1 1 1 0 0 1 0 1 1 0 0 1 1 0 0 1 1 1 0 0 1 0 0 1 1 0 1 0 0 1 0 1 1 0 0 1 0 1 0 1 1 0 1 1 1 0 0 1 1 0 0 1 0 0 0 1 1 1 0 0 1 1 0 1 1 0 0 0 0 1 0 1 1 1 0 0 1 0 0 1 1 0 0 1 0 1 0 1 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 1 1 0 1 1 1 0 0 1 1 0 1 1 1 0 0 1 1 0 0 0 0 1 0 1 1 0 1 0 0 0 0 1 1 0 0 0 0 1 0 1 1 0 1 1 1 0 0 1 1 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 1 0 0 0 0 1 0 1 1 1 0 1 1 0 0 1 1 0 1 0 0 1 ];        
+    msg = padarray(msg, [0, msg_size]);
+    %msg_size = length(msg);
     
-    msg_size = length(msg);
-    whos
 
     %Concatenate msg to itself redun times to to form redun_msg
     for t=1:redun
