@@ -17,7 +17,7 @@ warning('off', 'MATLAB:singularMatrix')
     for t=1:tests
         t %display the test number
         %embed a random message into the image
-        msg=embed1(image_addr, image_type, dim, cols_protected, redun, iterations);
+        msg=embed(image_addr, image_type, dim, cols_protected, redun, iterations);
         msg_size=size(msg,2)%display the size of the embedded message
         %recover the message from the marked image
         recover_addr = [image_addr,'_marked'];
