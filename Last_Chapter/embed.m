@@ -5,7 +5,7 @@
 %file type entered without a ?.? (ex tiff not .tiff), the block size to be
 %used, the number of columns to protect, the amount of redundancy and the
 %number of iterations to be used.
-function msg = embed1(image_addr, image_type, dim, cols_protected, redun,iterations)
+function msg = embed(image_addr, image_type, dim, cols_protected, redun,iterations)
     %read the input image
     input_image = imread(image_addr, image_type);
 
@@ -23,10 +23,15 @@ function msg = embed1(image_addr, image_type, dim, cols_protected, redun,iterati
     num_blocks=m*n/(dim^2);
 
     %computes the largest message that can be embedded
-    msg_size=ceil(bpb*num_blocks/redun);
+    %msg_size=ceil(bpb*num_blocks/redun);
+    %disp(msg_size)
 
     %Generate a random message of size msg_size to embed
-    msg=round(rand(1,msg_size));
+    %msg = round(rand(1,msg_size))
+    msg=[0 1 0 0 1 0 0 0 0 1 1 0 0 1 0 1 0 1 1 0 1 1 0 0 0 1 1 0 1 1 0 0 0 1 1 0 1 1 1 1 0 1 0 0 1 1 0 1 0 1 1 1 1 0 0 1 0 1 1 0 1 1 1 0 0 1 1 0 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 0 0 1 0 1 0 1 1 0 1 0 0 1 0 1 1 1 0 0 1 1 0 1 0 0 0 0 0 1 0 1 1 0 1 1 1 0 0 1 1 0 1 1 1 0 0 1 1 0 0 0 0 1 0 1 1 0 0 0 1 0 0 1 1 0 0 1 0 1 0 1 1 0 1 1 0 0 0 1 0 0 1 1 0 1 0 1 1 1 1 0 0 1 0 1 1 0 0 1 1 0 0 1 1 1 0 0 1 0 0 1 1 0 1 0 0 1 0 1 1 0 0 1 0 1 0 1 1 0 1 1 1 0 0 1 1 0 0 1 0 0 0 1 1 1 0 0 1 1 0 1 1 0 0 0 0 1 0 1 1 1 0 0 1 0 0 1 1 0 0 1 0 1 0 1 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 1 1 0 1 1 1 0 0 1 1 0 1 1 1 0 0 1 1 0 0 0 0 1 0 1 1 0 1 0 0 0 0 1 1 0 0 0 0 1 0 1 1 0 1 1 1 0 0 1 1 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 1 0 0 0 0 1 0 1 1 1 0 1 1 0 0 1 1 0 1 0 0 1 0 1 1 0 0 1 0 0 ]
+    
+    msg_size = length(msg);
+    whos
 
     %Concatenate msg to itself redun times to to form redun_msg
     for t=1:redun
