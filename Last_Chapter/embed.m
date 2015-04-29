@@ -28,7 +28,7 @@ function msg = embed(image_addr, image_type, dim, cols_protected, redun,iteratio
 
     %Generate a random message of size msg_size to embed\
     %msg = round(rand(1,msg_size))
-    msg = 'hello'
+    msg = 'Sarah is the coolest teacher.  Love Hannabel & David.'
     msg = dec2bin(msg, 8)'
     msg = msg(:)' - '0'
     
