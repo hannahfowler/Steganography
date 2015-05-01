@@ -28,12 +28,18 @@ function msg = embed(image_addr, image_type, dim, cols_protected, redun,iteratio
 
     %Generate a random message of size msg_size to embed\
     %msg = round(rand(1,msg_size));
-     msg = 'Singular value decomposition is so amazing! Just like Sarah.';
-     msg = dec2bin(msg, 8)';
-     msg = msg(:)' - '0'
+%      msg = 'Singular value decomposition is so amazing! Just like Sarah.';
+%      msg = dec2bin(msg, 8)';
+%      msg = msg(:)' - '0'
+
+    msg = round(rand(1,msg_size));
+%     msg = 'Sarah is the coolest teacher.  Love Hannabel & David.'
+%     msg = dec2bin(msg, 8)'
+%     msg = msg(:)' - '0'
+ 
     
     %msg=[0 1 0 0 1 0 0 0 0 1 1 0 0 1 0 1 0 1 1 0 1 1 0 0 0 1 1 0 1 1 0 0 0 1 1 0 1 1 1 1 0 1 0 0 1 1 0 1 0 1 1 1 1 0 0 1 0 1 1 0 1 1 1 0 0 1 1 0 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 0 0 1 0 1 0 1 1 0 1 0 0 1 0 1 1 1 0 0 1 1 0 1 0 0 0 0 0 1 0 1 1 0 1 1 1 0 0 1 1 0 1 1 1 0 0 1 1 0 0 0 0 1 0 1 1 0 0 0 1 0 0 1 1 0 0 1 0 1 0 1 1 0 1 1 0 0 0 1 0 0 1 1 0 1 0 1 1 1 1 0 0 1 0 1 1 0 0 1 1 0 0 1 1 1 0 0 1 0 0 1 1 0 1 0 0 1 0 1 1 0 0 1 0 1 0 1 1 0 1 1 1 0 0 1 1 0 0 1 0 0 0 1 1 1 0 0 1 1 0 1 1 0 0 0 0 1 0 1 1 1 0 0 1 0 0 1 1 0 0 1 0 1 0 1 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 1 1 0 1 1 1 0 0 1 1 0 1 1 1 0 0 1 1 0 0 0 0 1 0 1 1 0 1 0 0 0 0 1 1 0 0 0 0 1 0 1 1 0 1 1 1 0 0 1 1 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 1 0 0 0 0 1 0 1 1 1 0 1 1 0 0 1 1 0 1 0 0 1 0 1 1 0 0 1 0 0 ];
-    msg = padarray(msg, [0, msg_size]);
+    %msg = padarray(msg, [0 msg_size], 'post');
     
     %Concatenate msg to itself redun times to to form redun_msg
     for t=1:redun
