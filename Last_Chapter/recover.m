@@ -84,5 +84,5 @@ function rcvd_msg = recover(image_addr, image_type, dim, cols_protected,redun)
     end %end w 
 %return rcvd_msg
 rcvd_msg=act_msg;
-csvwrite('message.csv',rcvd_msg)
+csvwrite('recovered_message.csv',rcvd_msg)
 end 
